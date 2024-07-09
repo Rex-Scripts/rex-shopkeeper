@@ -4,7 +4,7 @@
 - tebex store : https://rexshackgaming.tebex.io/
 - support me : https://ko-fi.com/rexshackgaming
 
-# rex-gunsmith
+# rex-shopkeeper
 - For RSG RedM Framework : https://discord.gg/eW3ADkf4Af
 
 # Dependancies
@@ -14,10 +14,10 @@
 
 # Installation:
 - ensure that the dependancies are added and started
-- add rex-gunsmith to your resources folder
+- add rex-shopkeeper to your resources folder
 - items have already been added to rsg-core check you have the latest version
 - images have already been added to rsg-core check you have the latest version
-- add the following table to your database : rex-gunsmith.sql
+- add the following table to your database (see below)
 
 # Add Jobs
 - add jobs to "\rsg-core\shared\jobs.lua"
@@ -159,4 +159,4 @@ INSERT INTO `management_funds` (`job_name`, `amount`, `type`) VALUES
 ```
 
 # Starting the resource:
-- add the following to your server.cfg file : ensure rex-gunsmith
+- add the following to your server.cfg file : ensure rex-shopkeeper
