@@ -7,9 +7,9 @@ CreateThread(function()
     for _,v in pairs(Config.ShopkeeperLocations) do
         if v.showblip == true then    
             local ShopkeeperBlip = BlipAddForCoords(1664425300, v.coords)
-            SetBlipSprite(Shopkeeper, joaat(v.blipsprite), true)
-            SetBlipScale(Shopkeeper, v.blipscale)
-            SetBlipName(Shopkeeper, v.blipname)
+            SetBlipSprite(ShopkeeperBlip, joaat(v.blipsprite), true)
+            SetBlipScale(ShopkeeperBlip, v.blipscale)
+            SetBlipName(ShopkeeperBlip, v.blipname)
         end
     end
 end)
