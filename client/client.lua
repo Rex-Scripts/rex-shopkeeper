@@ -487,31 +487,30 @@ RegisterNetEvent('rex-shopkeeper:client:rentshopkeeper', function(shopkeeperid, 
         if not canbuy then
             lib.notify({ title = Lang:t('client.lang_50'), type = 'error', duration = 7000 })
             return
-        end
-    end)
-
-    RSGCore.Functions.TriggerCallback('rex-shopkeeper:server:countowned', function(result)
-
-        if result >= Config.MaxShopkeepers then
-            lib.notify({ title = Lang:t('client.lang_48'), description = Lang:t('client.lang_49'), type = 'error', duration = 7000 })
-            return
-        end
-
-        -- check player has a licence
-        if Config.LicenseRequired then
-            local hasItem = RSGCore.Functions.HasItem('shopkeeperlicence', 1)
-
-            if hasItem then
-                TriggerServerEvent('rex-shopkeeper:server:rentshopkeeper', shopkeeperid)
-            else
-                lib.notify({ title = Lang:t('client.lang_37'), type = 'error', duration = 7000 })
-            end
         else
-            TriggerServerEvent('rex-shopkeeper:server:rentshopkeeper', shopkeeperid)
-        end
+            RSGCore.Functions.TriggerCallback('rex-shopkeeper:server:countowned', function(result)
         
+                if result >= Config.MaxShopkeepers then
+                    lib.notify({ title = Lang:t('client.lang_48'), description = Lang:t('client.lang_49'), type = 'error', duration = 7000 })
+                    return
+                end
+        
+                -- check player has a licence
+                if Config.LicenseRequired then
+                    local hasItem = RSGCore.Functions.HasItem('shopkeeperlicence', 1)
+        
+                    if hasItem then
+                        TriggerServerEvent('rex-shopkeeper:server:rentshopkeeper', shopkeeperid)
+                    else
+                        lib.notify({ title = Lang:t('client.lang_37'), type = 'error', duration = 7000 })
+                    end
+                else
+                    TriggerServerEvent('rex-shopkeeper:server:rentshopkeeper', shopkeeperid)
+                end
+                
+            end)
+        end
     end)
-
 end)
 
 -------------------------------------------------------------------------------------------
